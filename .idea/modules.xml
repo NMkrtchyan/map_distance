@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GoogleMap_pixomatic.iml" filepath="$PROJECT_DIR$/GoogleMap_pixomatic.iml" />
+      <module fileurl="file://C:\Users\Acer\Weather_Pixomatic\googleMapDistance\GoogleMap_pixomatic.iml" filepath="C:\Users\Acer\Weather_Pixomatic\googleMapDistance\GoogleMap_pixomatic.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Acer\Weather_Pixomatic\googleMapDistance\app\app.iml" filepath="C:\Users\Acer\Weather_Pixomatic\googleMapDistance\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googleMapDistance.iml" filepath="$PROJECT_DIR$/googleMapDistance.iml" />
     </modules>
   </component>
 </project>

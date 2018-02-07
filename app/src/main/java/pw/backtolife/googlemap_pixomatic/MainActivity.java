@@ -11,6 +11,7 @@ import com.google.maps.android.SphericalUtil;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private LatLng mFrom;
     private LatLng mTo;
     private AppCompatTextView mTextViewDistance;
+    private AppCompatButton mAppCompatButtonClear;
 
     private int mMarkerCounter = 1;
 
@@ -30,15 +32,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
         mTextViewDistance = findViewById(R.id.tv_distance);
+        mAppCompatButtonClear = findViewById(R.id.btn_clear);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        mAppCompatButtonClear.setOnClickListener(new ClearClick());
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        mMap.getUiSettings().setAllGesturesEnabled(true);
 
         mMap.setOnMapLongClickListener(new LongClick());
     }
@@ -77,6 +84,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .title("Marker #" + String.valueOf(mMarkerCounter++)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         }
+    }
 
+    private class ClearClick implements View.OnClickListener{
+
+        @Override
+        public void onClick(View view) {
+            mMap.clear();
+            mMarkerCounter = 1;
+            mTextViewDistance.setVisibility(View.GONE);
+            mMap.setOnMapLongClickListener(new LongClick());
+        }
     }
 }
